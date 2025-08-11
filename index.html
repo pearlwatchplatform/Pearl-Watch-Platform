@@ -6,12 +6,12 @@
   <title>Breast Cancer Risk and Awareness Calculator</title>
   <style>
     :root{
-      --bg:#ffffff;            /* plain background */
-      --panel:#ffffff;          /* white cards */
-      --ink:#000000;            /* all text black */
-      --accent:#e76aa3;         /* primary */
-      --border:#e6e6e6;         /* light gray borders */
-      --radius:8px;             /* subtle rounding */
+      --bg:#ffffff;            
+      --panel:#ffffff;         
+      --ink:#000000;          
+      --accent:#e76aa3;        
+      --border:#e6e6e6;         
+      --radius:8px;             
     }
 
     *{box-sizing:border-box}
@@ -35,7 +35,7 @@
     h3{font-size:clamp(16px,1.8vw,19px);margin:.4em 0 .2em}
     .muted{color:var(--ink)}
 
-    /* Form shell similar to the screenshot: thin border, no shadow */
+   
     .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius)}
     .section{padding:18px}
     .section + .section{border-top:1px solid var(--border)}
@@ -43,16 +43,16 @@
     fieldset{border:0;margin:0;padding:0}
     legend{font-weight:700;margin:0 0 10px;text-align:left}
 
-    /* Question layout: label left, options right */
+  
     .q{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:12px 24px;margin:14px 0}
     .label{font-weight:600}
 
-    /* Options look: simple vertical list with default radios, like classic surveys */
+    
     .options{display:grid;gap:8px}
     .opt{display:flex;align-items:center;gap:8px}
     .opt input[type=radio]{accent-color:var(--accent)}
 
-    /* Buttons: simple rectangles */
+   
     .actions{display:flex;flex-wrap:wrap;gap:10px}
     button{border:1px solid var(--border);border-radius:6px;padding:10px 14px;font-weight:700;cursor:pointer;font-family:'Times New Roman', Times, serif}
     .primary{background:var(--accent);border-color:var(--accent);color:#fff}
