@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Breast Health Risk & Awareness (Educational Survey)</title>
+  <title>Breast Cancer Risk and Awareness Calculator</title>
   <style>
     :root{
-      --bg:#fff5f8;          /* soft pink page background */
-      --panel:#ffffff;        /* white cards */
-      --ink:#2e2e2e;          /* main text */
-      --muted:#666666;        /* helper text */
-      --accent:#e76aa3;       /* primary button / highlights */
-      --accent-weak:#f6c6da;  /* light pink fills */
-      --border:#efd3df;       /* borders */
+      --bg:#fff5f8;
+      --panel:#ffffff;
+      --ink:#2e2e2e;
+      --muted:#666666;
+      --accent:#e76aa3;
+      --accent-weak:#f6c6da;
+      --border:#efd3df;
       --radius:14px;
     }
     *{box-sizing:border-box}
@@ -22,11 +22,9 @@
     header{margin:8px 0 14px}
     h1{margin:.2em 0 .1em;font-weight:700;font-size:clamp(24px,3.4vw,34px)}
     .muted{color:var(--muted)}
-
     .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);box-shadow:0 10px 24px rgba(0,0,0,.04)}
     .section{padding:18px}
     .section + .section{border-top:1px solid var(--border)}
-
     fieldset{border:0;margin:0;padding:0}
     legend{font-weight:700;margin-bottom:10px}
     .q{margin:14px 0}
@@ -34,21 +32,17 @@
     .options{display:grid;gap:10px}
     .opt{display:flex;gap:10px;align-items:flex-start;background:#fff7fb;border:1px solid var(--accent-weak);padding:10px 12px;border-radius:10px}
     .opt input{margin-top:2px}
-
     .grid{display:grid;gap:16px}
     @media (min-width:840px){.grid{grid-template-columns:1fr 1fr}}
-
     .actions{display:flex;flex-wrap:wrap;gap:10px}
-    button{appearance:none;border:0;border-radius:10px;padding:12px 16px;font-weight:700;cursor:pointer;font-family:'Times New Roman', Times, serif}
-    .primary{background:var(--accent);color:#fff}
-    .ghost{background:transparent;border:1px solid var(--border)}
-
+    button{appearance:none;border:0;border-radius:10px;padding:12px 16px;font-weight:700;cursor:pointer;font-family:'Times New Roman', Times, serif;}
+    .primary{background:var(--accent);color:white}
+    .ghost{background:transparent;border:1px solid var(--border);}
     .results{display:none;padding:18px}
     .badge{display:inline-block;border-radius:999px;padding:8px 14px;margin:6px 6px 0 0;font-weight:700}
     .low{background:#eaf8f0;border:1px solid #bfe7cb}
     .mod{background:#fff2d8;border:1px solid #f4d79b}
     .elev{background:#ffe5ea;border:1px solid #ffb8c8}
-
     details{background:#fff7fb;border:1px solid var(--accent-weak);border-radius:10px;padding:10px 12px}
     summary{cursor:pointer;font-weight:600}
     ul{margin:.4em 0 .8em}
@@ -56,332 +50,333 @@
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <h1>Breast Health Risk & Awareness</h1>
-      <p class="muted">Educational self‑check for teens & young adults. <strong>Not medical advice.</strong> Your answers stay in your browser.</p>
-    </header>
+<div class="wrap">
+  <header>
+    <p class="muted">Pearl Watch Platform Survey</p>
+    <h1>Breast Cancer Risk and Awareness Calculator</h1>
+    <p class="muted">Disclaimer: This is an educational tool and not a medical diagnosis. Open to everyone and especially encouraging youth to participate, this survey estimates generalized <strong>risk</strong> and <strong>awareness</strong> levels based on your answers so you can learn about healthy habits, family history, and where to explore trustworthy data. No responses leave your browser.</p>
+  </header>
 
-    <form id="survey" class="card" novalidate>
-      <div class="section">
-        <p class="muted"><strong>Privacy:</strong> Nothing is uploaded; results are calculated on your device. You can clear responses anytime.</p>
-      </div>
+  <form id="survey" class="card" novalidate>
+    <div class="section">
+      <p class="muted"><strong>Privacy:</strong> Results are calculated entirely on your device. You can clear responses anytime.</p>
+    </div>
 
-      <div class="section grid">
-        <fieldset>
-          <legend>Demographics</legend>
-          <div class="q">
-            <div class="label">How old are you?</div>
-            <div class="options">
-              <label class="opt"><input type="radio" name="age_group" value="Under 14" required> Under 14</label>
-              <label class="opt"><input type="radio" name="age_group" value="14–18"> 14–18</label>
-              <label class="opt"><input type="radio" name="age_group" value="19–25"> 19–25</label>
-              <label class="opt"><input type="radio" name="age_group" value="Over 25"> Over 25</label>
-            </div>
-          </div>
-          <div class="q">
-            <div class="label">What race or ethnicity best describes you?</div>
-            <div class="options">
-              <label class="opt"><input type="radio" name="race_ethnicity" value="Asian"> Asian</label>
-              <label class="opt"><input type="radio" name="race_ethnicity" value="Black"> Black</label>
-              <label class="opt"><input type="radio" name="race_ethnicity" value="Hispanic/Latine"> Hispanic/Latine</label>
-              <label class="opt"><input type="radio" name="race_ethnicity" value="White"> White</label>
-              <label class="opt"><input type="radio" name="race_ethnicity" value="Middle Eastern/North African"> Middle Eastern/North African</label>
-              <label class="opt"><input type="radio" name="race_ethnicity" value="Native/Indigenous"> Native/Indigenous</label>
-              <label class="opt"><input type="radio" name="race_ethnicity" value="Pacific Islander"> Pacific Islander</label>
-              <label class="opt"><input type="radio" name="race_ethnicity" value="Multiracial"> Multiracial</label>
-              <label class="opt"><input type="radio" name="race_ethnicity" value="Prefer not to say"> Prefer not to say</label>
-            </div>
-          </div>
-          <div class="q">
-            <div class="label">Do you have a biological parent, sibling, or grandparent who has had breast cancer?</div>
-            <div class="options">
-              <label class="opt"><input type="radio" name="family_history_bc" value="Yes" required> Yes</label>
-              <label class="opt"><input type="radio" name="family_history_bc" value="No"> No</label>
-              <label class="opt"><input type="radio" name="family_history_bc" value="Not sure"> Not sure</label>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Lifestyle</legend>
-          <div class="q">
-            <div class="label">How often do you do physical activity that makes you sweat or breathe hard?</div>
-            <div class="options">
-              <label class="opt"><input type="radio" name="activity_frequency" value="Daily" required> Daily</label>
-              <label class="opt"><input type="radio" name="activity_frequency" value="A few times a week"> A few times a week</label>
-              <label class="opt"><input type="radio" name="activity_frequency" value="Rarely"> Rarely</label>
-              <label class="opt"><input type="radio" name="activity_frequency" value="Never"> Never</label>
-            </div>
-          </div>
-          <div class="q">
-            <div class="label">How would you describe your typical diet?</div>
-            <div class="options">
-              <label class="opt"><input type="radio" name="diet_quality" value="Mostly healthy" required> Mostly healthy</label>
-              <label class="opt"><input type="radio" name="diet_quality" value="Mixed"> Mixed</label>
-              <label class="opt"><input type="radio" name="diet_quality" value="Mostly unhealthy"> Mostly unhealthy</label>
-              <label class="opt"><input type="radio" name="diet_quality" value="I’m not sure"> I’m not sure</label>
-            </div>
-          </div>
-          <div class="q">
-            <div class="label">Have you ever smoked or used tobacco products?</div>
-            <div class="options">
-              <label class="opt"><input type="radio" name="tobacco_use" value="No" required> No</label>
-              <label class="opt"><input type="radio" name="tobacco_use" value="Yes"> Yes</label>
-              <label class="opt"><input type="radio" name="tobacco_use" value="I’d rather not say"> I’d rather not say</label>
-            </div>
-          </div>
-          <div class="q">
-            <div class="label">How often do you consume alcohol (even small amounts)?</div>
-            <div class="options">
-              <label class="opt"><input type="radio" name="alcohol_frequency" value="Never" required> Never</label>
-              <label class="opt"><input type="radio" name="alcohol_frequency" value="Occasionally"> Occasionally</label>
-              <label class="opt"><input type="radio" name="alcohol_frequency" value="Weekly"> Weekly</label>
-              <label class="opt"><input type="radio" name="alcohol_frequency" value="Daily"> Daily</label>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Awareness</legend>
-          <div class="q">
-            <div class="label">Have you ever heard of the BRCA1 or BRCA2 genes?</div>
-            <div class="options">
-              <label class="opt"><input type="radio" name="heard_brca" value="Yes" required> Yes</label>
-              <label class="opt"><input type="radio" name="heard_brca" value="No"> No</label>
-              <label class="opt"><input type="radio" name="heard_brca" value="I’m not sure"> I’m not sure</label>
-            </div>
-          </div>
-          <div class="q">
-            <div class="label">Do you know what a mammogram is used for?</div>
-            <div class="options">
-              <label class="opt"><input type="radio" name="know_mammogram" value="Yes" required> Yes</label>
-              <label class="opt"><input type="radio" name="know_mammogram" value="No"> No</label>
-              <label class="opt"><input type="radio" name="know_mammogram" value="I think so but I’m not sure"> I think so but I’m not sure</label>
-            </div>
-          </div>
-          <div class="q">
-            <div class="label">Have you learned about breast cancer in a health or school setting?</div>
-            <div class="options">
-              <label class="opt"><input type="radio" name="learned_in_school" value="Yes" required> Yes</label>
-              <label class="opt"><input type="radio" name="learned_in_school" value="No"> No</label>
-              <label class="opt"><input type="radio" name="learned_in_school" value="I don’t remember"> I don’t remember</label>
-            </div>
-          </div>
-          <div class="q">
-            <div class="label">Do you know how to do a breast self‑exam or have you heard of it?</div>
-            <div class="options">
-              <label class="opt"><input type="radio" name="self_exam_awareness" value="Yes" required> Yes</label>
-              <label class="opt"><input type="radio" name="self_exam_awareness" value="No"> No</label>
-              <label class="opt"><input type="radio" name="self_exam_awareness" value="I’ve heard of it but don’t know how to do it"> I’ve heard of it but don’t know how to do it</label>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Reproductive / Hormonal</legend>
-          <div class="q">
-            <div class="label">At what age did you get your first period?</div>
-            <div class="options">
-              <label class="opt"><input type="radio" name="menarche_age" value="Under 11" required> Under 11</label>
-              <label class="opt"><input type="radio" name="menarche_age" value="11–13"> 11–13</label>
-              <label class="opt"><input type="radio" name="menarche_age" value="14–16"> 14–16</label>
-              <label class="opt"><input type="radio" name="menarche_age" value="Over 16"> Over 16</label>
-              <label class="opt"><input type="radio" name="menarche_age" value="I haven’t had my period yet"> I haven’t had my period yet</label>
-            </div>
-          </div>
-          <div class="q">
-            <div class="label">Have you ever been pregnant?</div>
-            <div class="options">
-              <label class="opt"><input type="radio" name="pregnancy_history" value="No" required> No</label>
-              <label class="opt"><input type="radio" name="pregnancy_history" value="Yes"> Yes</label>
-              <label class="opt"><input type="radio" name="pregnancy_history" value="Prefer not to say"> Prefer not to say</label>
-            </div>
-          </div>
-          <div class="q">
-            <div class="label">Have you ever received radiation therapy to the chest (for example, for another illness)?</div>
-            <div class="options">
-              <label class="opt"><input type="radio" name="chest_radiation" value="No" required> No</label>
-              <label class="opt"><input type="radio" name="chest_radiation" value="Yes"> Yes</label>
-              <label class="opt"><input type="radio" name="chest_radiation" value="Not sure"> Not sure</label>
-            </div>
-          </div>
-          <div class="q">
-            <div class="label">Do you currently use any hormonal birth control?</div>
-            <div class="options">
-              <label class="opt"><input type="radio" name="hormonal_bc" value="None" required> None</label>
-              <label class="opt"><input type="radio" name="hormonal_bc" value="Pill/Patch/Ring"> Pill/Patch/Ring</label>
-              <label class="opt"><input type="radio" name="hormonal_bc" value="Hormonal IUD/Implant"> Hormonal IUD/Implant</label>
-              <label class="opt"><input type="radio" name="hormonal_bc" value="Not sure"> Not sure</label>
-              <label class="opt"><input type="radio" name="hormonal_bc" value="Prefer not to say"> Prefer not to say</label>
-            </div>
-          </div>
-        </fieldset>
-      </div>
-
-      <div class="section">
-        <div class="actions">
-          <button type="submit" class="primary">See my educational result</button>
-          <button type="button" id="resetBtn" class="ghost">Clear all</button>
-        </div>
-        <p class="muted" style="margin-top:8px">This tool is for learning only and does not estimate medical risk or give medical advice.</p>
-      </div>
-
-      <div id="results" class="results">
-        <h2>Your result</h2>
-        <div id="badges"></div>
-        <p id="resultBlurb" class="muted"></p>
-        <div class="grid" style="margin-top:12px">
-          <div>
-            <h3>Suggested next steps</h3>
-            <ul id="suggestions"></ul>
-          </div>
-          <div>
-            <h3>Learn more</h3>
-            <ul>
-              <li>BRCA1/2 basics and what genetic risk means</li>
-              <li>How alcohol and tobacco relate to health risks</li>
-              <li>Movement ideas for busy students</li>
-              <li>What screening is and who it’s for (by age)</li>
-            </ul>
-            <details>
-              <summary>Disclaimer</summary>
-              <p class="muted">Results are generalized and may not reflect personal risk. If you're under 18, talk with a parent/guardian or clinician before making health decisions.</p>
-            </details>
+    <div class="section grid">
+      <fieldset>
+        <legend>Demographics</legend>
+        <div class="q">
+          <div class="label">How old are you?</div>
+          <div class="options">
+            <label class="opt"><input type="radio" name="age_group" value="Under 14" required> Under 14</label>
+            <label class="opt"><input type="radio" name="age_group" value="14–18"> 14–18</label>
+            <label class="opt"><input type="radio" name="age_group" value="19–25"> 19–25</label>
+            <label class="opt"><input type="radio" name="age_group" value="Over 25"> Over 25</label>
           </div>
         </div>
+        <div class="q">
+          <div class="label">What race or ethnicity best describes you?</div>
+          <div class="options">
+            <label class="opt"><input type="radio" name="race_ethnicity" value="Asian"> Asian</label>
+            <label class="opt"><input type="radio" name="race_ethnicity" value="Black"> Black</label>
+            <label class="opt"><input type="radio" name="race_ethnicity" value="Hispanic/Latine"> Hispanic/Latine</label>
+            <label class="opt"><input type="radio" name="race_ethnicity" value="White"> White</label>
+            <label class="opt"><input type="radio" name="race_ethnicity" value="Middle Eastern/North African"> Middle Eastern/North African</label>
+            <label class="opt"><input type="radio" name="race_ethnicity" value="Native/Indigenous"> Native/Indigenous</label>
+            <label class="opt"><input type="radio" name="race_ethnicity" value="Pacific Islander"> Pacific Islander</label>
+            <label class="opt"><input type="radio" name="race_ethnicity" value="Multiracial"> Multiracial</label>
+            <label class="opt"><input type="radio" name="race_ethnicity" value="Prefer not to say"> Prefer not to say</label>
+          </div>
+        </div>
+        <div class="q">
+          <div class="label">Do you have a biological parent, sibling, or grandparent who has had breast cancer?</div>
+          <div class="options">
+            <label class="opt"><input type="radio" name="family_history_bc" value="Yes" required> Yes</label>
+            <label class="opt"><input type="radio" name="family_history_bc" value="No"> No</label>
+            <label class="opt"><input type="radio" name="family_history_bc" value="Not sure"> Not sure</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Lifestyle</legend>
+        <div class="q">
+          <div class="label">How often do you do physical activity that makes you sweat or breathe hard?</div>
+          <div class="options">
+            <label class="opt"><input type="radio" name="activity_frequency" value="Daily" required> Daily</label>
+            <label class="opt"><input type="radio" name="activity_frequency" value="A few times a week"> A few times a week</label>
+            <label class="opt"><input type="radio" name="activity_frequency" value="Rarely"> Rarely</label>
+            <label class="opt"><input type="radio" name="activity_frequency" value="Never"> Never</label>
+          </div>
+        </div>
+        <div class="q">
+          <div class="label">How would you describe your typical diet?</div>
+          <div class="options">
+            <label class="opt"><input type="radio" name="diet_quality" value="Mostly healthy" required> Mostly healthy</label>
+            <label class="opt"><input type="radio" name="diet_quality" value="Mixed"> Mixed</label>
+            <label class="opt"><input type="radio" name="diet_quality" value="Mostly unhealthy"> Mostly unhealthy</label>
+            <label class="opt"><input type="radio" name="diet_quality" value="I’m not sure"> I’m not sure</label>
+          </div>
+        </div>
+        <div class="q">
+          <div class="label">Have you ever smoked or used tobacco products?</div>
+          <div class="options">
+            <label class="opt"><input type="radio" name="tobacco_use" value="No" required> No</label>
+            <label class="opt"><input type="radio" name="tobacco_use" value="Yes"> Yes</label>
+            <label class="opt"><input type="radio" name="tobacco_use" value="I’d rather not say"> I’d rather not say</label>
+          </div>
+        </div>
+        <div class="q">
+          <div class="label">How often do you consume alcohol (even small amounts)?</div>
+          <div class="options">
+            <label class="opt"><input type="radio" name="alcohol_frequency" value="Never" required> Never</label>
+            <label class="opt"><input type="radio" name="alcohol_frequency" value="Occasionally"> Occasionally</label>
+            <label class="opt"><input type="radio" name="alcohol_frequency" value="Weekly"> Weekly</label>
+            <label class="opt"><input type="radio" name="alcohol_frequency" value="Daily"> Daily</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Awareness</legend>
+        <div class="q">
+          <div class="label">Have you ever heard of the BRCA1 or BRCA2 genes?</div>
+          <div class="options">
+            <label class="opt"><input type="radio" name="heard_brca" value="Yes" required> Yes</label>
+            <label class="opt"><input type="radio" name="heard_brca" value="No"> No</label>
+            <label class="opt"><input type="radio" name="heard_brca" value="I’m not sure"> I’m not sure</label>
+          </div>
+        </div>
+        <div class="q">
+          <div class="label">Do you know what a mammogram is used for?</div>
+          <div class="options">
+            <label class="opt"><input type="radio" name="know_mammogram" value="Yes" required> Yes</label>
+            <label class="opt"><input type="radio" name="know_mammogram" value="No"> No</label>
+            <label class="opt"><input type="radio" name="know_mammogram" value="I think so but I’m not sure"> I think so but I’m not sure</label>
+          </div>
+        </div>
+        <div class="q">
+          <div class="label">Have you learned about breast cancer in a health or school setting?</div>
+          <div class="options">
+            <label class="opt"><input type="radio" name="learned_in_school" value="Yes" required> Yes</label>
+            <label class="opt"><input type="radio" name="learned_in_school" value="No"> No</label>
+            <label class="opt"><input type="radio" name="learned_in_school" value="I don’t remember"> I don’t remember</label>
+          </div>
+        </div>
+        <div class="q">
+          <div class="label">Do you know how to do a breast self‑exam or have you heard of it?</div>
+          <div class="options">
+            <label class="opt"><input type="radio" name="self_exam_awareness" value="Yes" required> Yes</label>
+            <label class="opt"><input type="radio" name="self_exam_awareness" value="No"> No</label>
+            <label class="opt"><input type="radio" name="self_exam_awareness" value="I’ve heard of it but don’t know how to do it"> I’ve heard of it but don’t know how to do it</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Reproductive / Hormonal</legend>
+        <div class="q">
+          <div class="label">At what age did you get your first period?</div>
+          <div class="options">
+            <label class="opt"><input type="radio" name="menarche_age" value="Under 11" required> Under 11</label>
+            <label class="opt"><input type="radio" name="menarche_age" value="11–13"> 11–13</label>
+            <label class="opt"><input type="radio" name="menarche_age" value="14–16"> 14–16</label>
+            <label class="opt"><input type="radio" name="menarche_age" value="Over 16"> Over 16</label>
+            <label class="opt"><input type="radio" name="menarche_age" value="I haven’t had my period yet"> I haven’t had my period yet</label>
+          </div>
+        </div>
+        <div class="q">
+          <div class="label">Have you ever been pregnant?</div>
+          <div class="options">
+            <label class="opt"><input type="radio" name="pregnancy_history" value="No" required> No</label>
+            <label class="opt"><input type="radio" name="pregnancy_history" value="Yes"> Yes</label>
+            <label class="opt"><input type="radio" name="pregnancy_history" value="Prefer not to say"> Prefer not to say</label>
+          </div>
+        </div>
+        <div class="q">
+          <div class="label">Have you ever received radiation therapy to the chest (for example, for another illness)?</div>
+          <div class="options">
+            <label class="opt"><input type="radio" name="chest_radiation" value="No" required> No</label>
+            <label class="opt"><input type="radio" name="chest_radiation" value="Yes"> Yes</label>
+            <label class="opt"><input type="radio" name="chest_radiation" value="Not sure"> Not sure</label>
+          </div>
+        </div>
+        <div class="q">
+          <div class="label">Do you currently use any hormonal birth control?</div>
+          <div class="options">
+            <label class="opt"><input type="radio" name="hormonal_bc" value="None" required> None</label>
+            <label class="opt"><input type="radio" name="hormonal_bc" value="Pill/Patch/Ring"> Pill/Patch/Ring</label>
+            <label class="opt"><input type="radio" name="hormonal_bc" value="Hormonal IUD/Implant"> Hormonal IUD/Implant</label>
+            <label class="opt"><input type="radio" name="hormonal_bc" value="Not sure"> Not sure</label>
+            <label class="opt"><input type="radio" name="hormonal_bc" value="Prefer not to say"> Prefer not to say</label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="section">
+      <div class="actions">
+        <button type="submit" class="primary">See my educational result</button>
+        <button type="button" id="resetBtn" class="ghost">Clear all</button>
       </div>
-    </form>
+      <p class="muted" style="margin-top:8px">This tool is for learning only and does not estimate medical risk or give medical advice.</p>
+    </div>
 
-    <footer>
-      <small>© 2025 • Educational tool. No data leaves your browser.</small>
-    </footer>
-  </div>
+    <div id="results" class="results">
+      <h2>Your result</h2>
+      <div id="badges"></div>
+      <p id="resultBlurb" class="muted"></p>
+      <div class="grid" style="margin-top:12px">
+        <div>
+          <h3>Suggested next steps</h3>
+          <ul id="suggestions"></ul>
+        </div>
+        <div>
+          <h3>Learn more</h3>
+          <ul>
+            <li>BRCA1/2 basics and what genetic risk means</li>
+            <li>How alcohol and tobacco relate to health risks</li>
+            <li>Movement ideas for busy students</li>
+            <li>What screening is and who it’s for (by age)</li>
+          </ul>
+          <details>
+            <summary>Disclaimer</summary>
+            <p class="muted">Results are generalized and may not reflect personal risk. If you're under 18, talk with a parent/guardian or clinician before making health decisions.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </form>
 
-  <script>
-    // --- Scoring maps (educational, not clinical) ---
-    const RISK = {
-      age_group: {"Under 14":0, "14–18":0, "19–25":1, "Over 25":2},
-      family_history_bc: {"Yes":3, "No":0, "Not sure":1},
-      activity_frequency: {"Daily":0, "A few times a week":1, "Rarely":2, "Never":3},
-      diet_quality: {"Mostly healthy":0, "Mixed":1, "Mostly unhealthy":2, "I’m not sure":1},
-      tobacco_use: {"Yes":3, "No":0, "I’d rather not say":1},
-      alcohol_frequency: {"Never":0, "Occasionally":1, "Weekly":2, "Daily":3},
-      menarche_age: {"Under 11":2, "11–13":1, "14–16":0, "Over 16":0, "I haven’t had my period yet":0},
-      pregnancy_history: {"Yes":0, "No":1, "Prefer not to say":0},
-      chest_radiation: {"Yes":4, "No":0, "Not sure":2},
-      hormonal_bc: {"None":0, "Pill/Patch/Ring":1, "Hormonal IUD/Implant":1, "Not sure":0, "Prefer not to say":0}
-    };
+  <footer>
+    <p>© 2025 Pearl Watch Platform • Educational tool. No data leaves your browser.</p>
+  </footer>
+</div>
 
-    const AWARE = {
-      heard_brca: {"Yes":2, "No":0, "I’m not sure":1},
-      know_mammogram: {"Yes":2, "No":0, "I think so but I’m not sure":1},
-      learned_in_school: {"Yes":2, "No":0, "I don’t remember":1},
-      self_exam_awareness: {"Yes":2, "No":0, "I’ve heard of it but don’t know how to do it":1}
-    };
+<script>
+  // --- Scoring maps (educational, not clinical) ---
+  const RISK = {
+    age_group: {"Under 14":0, "14–18":0, "19–25":1, "Over 25":2},
+    family_history_bc: {"Yes":3, "No":0, "Not sure":1},
+    activity_frequency: {"Daily":0, "A few times a week":1, "Rarely":2, "Never":3},
+    diet_quality: {"Mostly healthy":0, "Mixed":1, "Mostly unhealthy":2, "I’m not sure":1},
+    tobacco_use: {"Yes":3, "No":0, "I’d rather not say":1},
+    alcohol_frequency: {"Never":0, "Occasionally":1, "Weekly":2, "Daily":3},
+    menarche_age: {"Under 11":2, "11–13":1, "14–16":0, "Over 16":0, "I haven’t had my period yet":0},
+    pregnancy_history: {"Yes":0, "No":1, "Prefer not to say":0},
+    chest_radiation: {"Yes":4, "No":0, "Not sure":2},
+    hormonal_bc: {"None":0, "Pill/Patch/Ring":1, "Hormonal IUD/Implant":1, "Not sure":0, "Prefer not to say":0}
+  };
 
-    const THRESH = {
-      risk: {low:[0,4], moderate:[5,9], elevated:[10,99]},
-      aware: {low:[0,3], moderate:[4,6], high:[7,99]}
-    };
+  const AWARE = {
+    heard_brca: {"Yes":2, "No":0, "I’m not sure":1},
+    know_mammogram: {"Yes":2, "No":0, "I think so but I’m not sure":1},
+    learned_in_school: {"Yes":2, "No":0, "I don’t remember":1},
+    self_exam_awareness: {"Yes":2, "No":0, "I’ve heard of it but don’t know how to do it":1}
+  };
 
-    const form = document.getElementById('survey');
-    const resultsEl = document.getElementById('results');
-    const badges = document.getElementById('badges');
-    const blurb = document.getElementById('resultBlurb');
-    const suggestions = document.getElementById('suggestions');
+  const THRESH = {
+    risk: {low:[0,4], moderate:[5,9], elevated:[10,99]},
+    aware: {low:[0,3], moderate:[4,6], high:[7,99]}
+  };
 
-    function val(name){
-      const el = form.querySelector(`[name="${name}"]:checked`);
-      return el ? el.value : null;
+  const form = document.getElementById('survey');
+  const resultsEl = document.getElementById('results');
+  const badges = document.getElementById('badges');
+  const blurb = document.getElementById('resultBlurb');
+  const suggestions = document.getElementById('suggestions');
+
+  function val(name){
+    const el = form.querySelector(`[name="${name}"]:checked`);
+    return el ? el.value : null;
+  }
+  function sumPoints(map){
+    return Object.keys(map).reduce((acc,key)=>{
+      const v = val(key);
+      const pts = v!=null && map[key][v]!=null ? map[key][v] : 0;
+      return acc + pts;
+    },0);
+  }
+  function band(total, [lo,hi]){ return total>=lo && total<=hi; }
+  function riskLevel(total){
+    if(band(total, THRESH.risk.low)) return 'Low';
+    if(band(total, THRESH.risk.moderate)) return 'Moderate';
+    return 'Elevated';
+  }
+  function awareLevel(total){
+    if(band(total, THRESH.aware.high)) return 'High';
+    if(band(total, THRESH.aware.moderate)) return 'Moderate';
+    return 'Low';
+  }
+
+  function outcomeCopy(risk, aware){
+    const combo = `${risk} Risk / ${aware} Awareness`;
+    let what = '';
+    let tips = [];
+    if(risk==='Low' && aware==='High'){
+      what = 'Your answers suggest fewer current risk factors and strong knowledge about breast health.';
+      tips = ['Keep up regular activity','Limit alcohol; avoid tobacco','Share a helpful resource with a friend'];
+    } else if(risk==='Moderate' && aware==='Low'){
+      what = 'A few modifiable factors may be present, and there\'s room to build knowledge.';
+      tips = ['Learn BRCA basics and what screening means by age','Try 20–30 minutes of movement 3×/week','Limit alcohol; avoid tobacco'];
+    } else if(risk==='Elevated' && aware==='Moderate'){
+      what = 'Your answers include several risk factors. This is educational, not a diagnosis.';
+      tips = ['Review family history info and healthy routines','Avoid tobacco; keep alcohol low','If you have questions about personal risk, talk with a clinician (and a trusted adult if under 18)'];
+    } else {
+      what = 'Here are general suggestions based on your answers.';
+      tips = ['Build a weekly movement habit','Learn screening & genetics basics','Choose supportive foods most days'];
     }
-    function sumPoints(map){
-      return Object.keys(map).reduce((acc,key)=>{
-        const v = val(key);
-        const pts = v!=null && map[key][v]!=null ? map[key][v] : 0;
-        return acc + pts;
-      },0);
-    }
-    function band(total, [lo,hi]){ return total>=lo && total<=hi; }
-    function riskLevel(total){
-      if(band(total, THRESH.risk.low)) return 'Low';
-      if(band(total, THRESH.risk.moderate)) return 'Moderate';
-      return 'Elevated';
-    }
-    function awareLevel(total){
-      if(band(total, THRESH.aware.high)) return 'High';
-      if(band(total, THRESH.aware.moderate)) return 'Moderate';
-      return 'Low';
-    }
+    return { combo, what, tips };
+  }
 
-    function outcomeCopy(risk, aware){
-      const combo = `${risk} Risk / ${aware} Awareness`;
-      let what = '';
-      let tips = [];
-      if(risk==='Low' && aware==='High'){
-        what = 'Your answers suggest fewer current risk factors and strong knowledge about breast health.';
-        tips = ['Keep up regular activity','Limit alcohol; avoid tobacco','Share a helpful resource with a friend'];
-      } else if(risk==='Moderate' && aware==='Low'){
-        what = 'A few modifiable factors may be present, and there\'s room to build knowledge.';
-        tips = ['Learn BRCA basics and what screening means by age','Try 20–30 minutes of movement 3×/week','Limit alcohol; avoid tobacco'];
-      } else if(risk==='Elevated' && aware==='Moderate'){
-        what = 'Your answers include several risk factors. This is educational, not a diagnosis.';
-        tips = ['Review family history info and healthy routines','Avoid tobacco; keep alcohol low','If you have questions about personal risk, talk with a clinician (and a trusted adult if under 18)'];
-      } else {
-        what = 'Here are general suggestions based on your answers.';
-        tips = ['Build a weekly movement habit','Learn screening & genetics basics','Choose supportive foods most days'];
+  function renderBadges(risk, aware){
+    const pill = (txt, cls)=>`<span class="badge ${cls}">${txt}</span>`;
+    const riskCls = risk==='Low' ? 'low' : risk==='Moderate' ? 'mod' : 'elev';
+    const awareCls = aware==='High' ? 'low' : aware==='Moderate' ? 'mod' : 'elev';
+    badges.innerHTML = `${pill(`${risk} Risk`, riskCls)} ${pill(`${aware} Awareness`, awareCls)}`;
+  }
+
+  function saveLocal(){
+    const data = new FormData(form); const o={};
+    for(const [k,v] of data.entries()){ o[k]=v }
+    localStorage.setItem('bc_survey_pink', JSON.stringify(o));
+  }
+  function loadLocal(){
+    try{ const o = JSON.parse(localStorage.getItem('bc_survey_pink')||'null'); if(!o) return;
+      for(const [k,v] of Object.entries(o)){
+        const el = form.querySelector(`[name="${k}"][value="${v}"]`);
+        if(el) el.checked = true;
       }
-      return { combo, what, tips };
-    }
+    }catch{ /* ignore */ }
+  }
 
-    function renderBadges(risk, aware){
-      const pill = (txt, cls)=>`<span class="badge ${cls}">${txt}</span>`;
-      const riskCls = risk==='Low' ? 'low' : risk==='Moderate' ? 'mod' : 'elev';
-      const awareCls = aware==='High' ? 'low' : aware==='Moderate' ? 'mod' : 'elev';
-      badges.innerHTML = `${pill(`${risk} Risk`, riskCls)} ${pill(`${aware} Awareness`, awareCls)}`;
-    }
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const required = form.querySelectorAll('input[required]');
+    for(const r of required){ if(!form.querySelector(`[name="${r.name}"]:checked`)){ r.focus(); return; } }
 
-    function saveLocal(){
-      const data = new FormData(form); const o={};
-      for(const [k,v] of data.entries()){ o[k]=v }
-      localStorage.setItem('bc_survey_pink', JSON.stringify(o));
-    }
-    function loadLocal(){
-      try{ const o = JSON.parse(localStorage.getItem('bc_survey_pink')||'null'); if(!o) return;
-        for(const [k,v] of Object.entries(o)){
-          const el = form.querySelector(`[name="${k}"][value="${v}"]`);
-          if(el) el.checked = true;
-        }
-      }catch{ /* ignore */ }
-    }
+    const riskTotal = sumPoints(RISK);
+    const awareTotal = sumPoints(AWARE);
+    const rLvl = riskLevel(riskTotal);
+    const aLvl = awareLevel(awareTotal);
 
-    form.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const required = form.querySelectorAll('input[required]');
-      for(const r of required){ if(!form.querySelector(`[name="${r.name}"]:checked`)){ r.focus(); return; } }
+    const {combo, what, tips} = outcomeCopy(rLvl, aLvl);
+    renderBadges(rLvl, aLvl);
+    blurb.textContent = `${combo}. ${what}`;
+    suggestions.innerHTML = tips.map(t=>`<li>${t}</li>`).join('');
 
-      const riskTotal = sumPoints(RISK);
-      const awareTotal = sumPoints(AWARE);
-      const rLvl = riskLevel(riskTotal);
-      const aLvl = awareLevel(awareTotal);
+    resultsEl.style.display = 'block';
+    saveLocal();
+    resultsEl.scrollIntoView({behavior:'smooth'});
+  });
 
-      const {combo, what, tips} = outcomeCopy(rLvl, aLvl);
-      renderBadges(rLvl, aLvl);
-      blurb.textContent = `${combo}. ${what}`;
-      suggestions.innerHTML = tips.map(t=>`<li>${t}</li>`).join('');
+  document.getElementById('resetBtn').addEventListener('click', ()=>{
+    form.reset();
+    resultsEl.style.display = 'none';
+    localStorage.removeItem('bc_survey_pink');
+  });
 
-      resultsEl.style.display = 'block';
-      saveLocal();
-      resultsEl.scrollIntoView({behavior:'smooth'});
-    });
-
-    document.getElementById('resetBtn').addEventListener('click', ()=>{
-      form.reset();
-      resultsEl.style.display = 'none';
-      localStorage.removeItem('bc_survey_pink');
-    });
-
-    loadLocal();
-  </script>
+  loadLocal();
+</script>
 </body>
 </html>
