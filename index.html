@@ -4,14 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Breast Cancer Risk and Awareness Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#ffffff;            
-      --panel:#ffffff;         
-      --ink:#000000;          
-      --accent:#e76aa3;        
-      --border:#e6e6e6;         
-      --radius:8px;             
+      --bg:#ffffff;
+      --panel:#ffffff;
+      --ink:#000000;
+      --accent:#e76aa3;
+      --border:#e6e6e6;
+      --radius:8px;
     }
 
     *{box-sizing:border-box}
@@ -20,14 +21,14 @@
       margin:0;
       background:var(--bg);
       color:var(--ink);
-      font:16px/1.6 'Times New Roman', Times, serif; /* body text */
+      font:16px/1.6 'Poppins', 'Inter', 'Segoe UI', Roboto, system-ui, -apple-system, Arial, sans-serif; /* Poppins-like */
     }
 
     .wrap{max-width:760px;margin:0 auto;padding:24px}
 
     header{margin:6px 0 16px;text-align:center}
     h1,h2,h3, legend, summary{
-      font-family: Georgia, 'Times New Roman', serif; /* headings */
+      font-family:'Poppins','Inter','Segoe UI', Roboto, system-ui, -apple-system, Arial, sans-serif; /* headings */
       color:var(--ink);
     }
     h1{margin:.15em 0 .2em;font-weight:700;font-size:clamp(24px,3.2vw,34px)}
@@ -35,26 +36,29 @@
     h3{font-size:clamp(16px,1.8vw,19px);margin:.4em 0 .2em}
     .muted{color:var(--ink)}
 
-   
-    .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius)}
+    .card{background:transparent;border:0;border-radius:var(--radius)}
     .section{padding:18px}
     .section + .section{border-top:1px solid var(--border)}
 
     fieldset{border:0;margin:0;padding:0}
     legend{font-weight:700;margin:0 0 10px;text-align:left}
 
-  
     .q{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:12px 24px;margin:14px 0}
     .label{font-weight:600}
 
-    
     .options{display:grid;gap:8px}
     .opt{display:flex;align-items:center;gap:8px}
     .opt input[type=radio]{accent-color:var(--accent)}
 
-   
     .actions{display:flex;flex-wrap:wrap;gap:10px}
-    button{border:1px solid var(--border);border-radius:6px;padding:10px 14px;font-weight:700;cursor:pointer;font-family:'Times New Roman', Times, serif}
+    button{
+      border:1px solid var(--border);
+      border-radius:6px;
+      padding:10px 14px;
+      font-weight:700;
+      cursor:pointer;
+      font-family:'Poppins','Inter','Segoe UI', Roboto, system-ui, -apple-system, Arial, sans-serif;
+    }
     .primary{background:var(--accent);border-color:var(--accent);color:#fff}
     .primary:hover{filter:brightness(0.95)}
     .ghost{background:#fff}
@@ -88,6 +92,7 @@
       <div class="section">
         <fieldset>
           <legend>Demographics</legend>
+
           <div class="q">
             <div class="label">How old are you?</div>
             <div class="options">
@@ -97,6 +102,7 @@
               <label class="opt"><input type="radio" name="age_group" value="Over 25"> Over 25</label>
             </div>
           </div>
+
           <div class="q">
             <div class="label">What race or ethnicity best describes you?</div>
             <div class="options">
@@ -111,6 +117,17 @@
               <label class="opt"><input type="radio" name="race_ethnicity" value="Prefer not to say"> Prefer not to say</label>
             </div>
           </div>
+
+          <div class="q">
+            <div class="label">What sex were you assigned at birth?</div>
+            <div class="options">
+              <label class="opt"><input type="radio" name="sex_at_birth" value="Female"> Female</label>
+              <label class="opt"><input type="radio" name="sex_at_birth" value="Male"> Male</label>
+              <label class="opt"><input type="radio" name="sex_at_birth" value="Intersex/Another"> Intersex/Another</label>
+              <label class="opt"><input type="radio" name="sex_at_birth" value="Prefer not to say"> Prefer not to say</label>
+            </div>
+          </div>
+
           <div class="q">
             <div class="label">Do you have a biological parent, sibling, or grandparent who has had breast cancer?</div>
             <div class="options">
@@ -119,12 +136,32 @@
               <label class="opt"><input type="radio" name="family_history_bc" value="Not sure"> Not sure</label>
             </div>
           </div>
+
+          <div class="q">
+            <div class="label">Has anyone in your close family had ovarian or prostate cancer?</div>
+            <div class="options">
+              <label class="opt"><input type="radio" name="family_history_ov_pro" value="Yes"> Yes</label>
+              <label class="opt"><input type="radio" name="family_history_ov_pro" value="No"> No</label>
+              <label class="opt"><input type="radio" name="family_history_ov_pro" value="Not sure"> Not sure</label>
+            </div>
+          </div>
+
+          <div class="q">
+            <div class="label">Do you have Ashkenazi Jewish ancestry?</div>
+            <div class="options">
+              <label class="opt"><input type="radio" name="ashkenazi" value="Yes"> Yes</label>
+              <label class="opt"><input type="radio" name="ashkenazi" value="No"> No</label>
+              <label class="opt"><input type="radio" name="ashkenazi" value="Not sure"> Not sure</label>
+            </div>
+          </div>
+
         </fieldset>
       </div>
 
       <div class="section">
         <fieldset>
           <legend>Lifestyle</legend>
+
           <div class="q">
             <div class="label">How often do you do physical activity that makes you sweat or breathe hard?</div>
             <div class="options">
@@ -134,6 +171,7 @@
               <label class="opt"><input type="radio" name="activity_frequency" value="Never"> Never</label>
             </div>
           </div>
+
           <div class="q">
             <div class="label">How would you describe your typical diet?</div>
             <div class="options">
@@ -143,6 +181,7 @@
               <label class="opt"><input type="radio" name="diet_quality" value="I’m not sure"> I’m not sure</label>
             </div>
           </div>
+
           <div class="q">
             <div class="label">Have you ever smoked or used tobacco products?</div>
             <div class="options">
@@ -151,6 +190,7 @@
               <label class="opt"><input type="radio" name="tobacco_use" value="I’d rather not say"> I’d rather not say</label>
             </div>
           </div>
+
           <div class="q">
             <div class="label">How often do you consume alcohol (even small amounts)?</div>
             <div class="options">
@@ -160,12 +200,33 @@
               <label class="opt"><input type="radio" name="alcohol_frequency" value="Daily"> Daily</label>
             </div>
           </div>
+
+          <div class="q">
+            <div class="label">On most nights, how many hours of sleep do you get?</div>
+            <div class="options">
+              <label class="opt"><input type="radio" name="sleep_hours" value="8+ hours"> 8+ hours</label>
+              <label class="opt"><input type="radio" name="sleep_hours" value="~7 hours"> ~7 hours</label>
+              <label class="opt"><input type="radio" name="sleep_hours" value="5–6 hours"> 5–6 hours</label>
+              <label class="opt"><input type="radio" name="sleep_hours" value="<5 hours"> &lt;5 hours</label>
+            </div>
+          </div>
+
+          <div class="q">
+            <div class="label">About how many hours per day do you spend sitting (class, homework, screens)?</div>
+            <div class="options">
+              <label class="opt"><input type="radio" name="sedentary_hours" value="<4 hours"> &lt;4 hours</label>
+              <label class="opt"><input type="radio" name="sedentary_hours" value="4–7 hours"> 4–7 hours</label>
+              <label class="opt"><input type="radio" name="sedentary_hours" value="8+ hours"> 8+ hours</label>
+            </div>
+          </div>
+
         </fieldset>
       </div>
 
       <div class="section">
         <fieldset>
           <legend>Awareness</legend>
+
           <div class="q">
             <div class="label">Have you ever heard of the BRCA1 or BRCA2 genes?</div>
             <div class="options">
@@ -174,6 +235,7 @@
               <label class="opt"><input type="radio" name="heard_brca" value="I’m not sure"> I’m not sure</label>
             </div>
           </div>
+
           <div class="q">
             <div class="label">Do you know what a mammogram is used for?</div>
             <div class="options">
@@ -182,6 +244,7 @@
               <label class="opt"><input type="radio" name="know_mammogram" value="I think so but I’m not sure"> I think so but I’m not sure</label>
             </div>
           </div>
+
           <div class="q">
             <div class="label">Have you learned about breast cancer in a health or school setting?</div>
             <div class="options">
@@ -190,20 +253,50 @@
               <label class="opt"><input type="radio" name="learned_in_school" value="I don’t remember"> I don’t remember</label>
             </div>
           </div>
+
           <div class="q">
-            <div class="label">Do you know how to do a breast self‑exam or have you heard of it?</div>
+            <div class="label">Do you know how to do a breast self-exam or have you heard of it?</div>
             <div class="options">
               <label class="opt"><input type="radio" name="self_exam_awareness" value="Yes" required> Yes</label>
               <label class="opt"><input type="radio" name="self_exam_awareness" value="No"> No</label>
               <label class="opt"><input type="radio" name="self_exam_awareness" value="I’ve heard of it but don’t know how to do it"> I’ve heard of it but don’t know how to do it</label>
             </div>
           </div>
+
+          <div class="q">
+            <div class="label">Do you know the general age range when routine screening typically starts (for average-risk adults)?</div>
+            <div class="options">
+              <label class="opt"><input type="radio" name="know_screening_age" value="Yes"> Yes</label>
+              <label class="opt"><input type="radio" name="know_screening_age" value="Not sure"> Not sure</label>
+              <label class="opt"><input type="radio" name="know_screening_age" value="No"> No</label>
+            </div>
+          </div>
+
+          <div class="q">
+            <div class="label">Do you know key details of your family cancer history (which relatives, ages, cancer types)?</div>
+            <div class="options">
+              <label class="opt"><input type="radio" name="know_fam_details" value="Yes"> Yes</label>
+              <label class="opt"><input type="radio" name="know_fam_details" value="Somewhat"> Somewhat</label>
+              <label class="opt"><input type="radio" name="know_fam_details" value="No"> No</label>
+            </div>
+          </div>
+
+          <div class="q">
+            <div class="label">Do you know where to find reliable breast health information (e.g., major medical orgs)?</div>
+            <div class="options">
+              <label class="opt"><input type="radio" name="know_sources" value="Yes"> Yes</label>
+              <label class="opt"><input type="radio" name="know_sources" value="Not sure"> Not sure</label>
+              <label class="opt"><input type="radio" name="know_sources" value="No"> No</label>
+            </div>
+          </div>
+
         </fieldset>
       </div>
 
       <div class="section">
         <fieldset>
           <legend>Reproductive / Hormonal</legend>
+
           <div class="q">
             <div class="label">At what age did you get your first period?</div>
             <div class="options">
@@ -214,6 +307,7 @@
               <label class="opt"><input type="radio" name="menarche_age" value="I haven’t had my period yet"> I haven’t had my period yet</label>
             </div>
           </div>
+
           <div class="q">
             <div class="label">Have you ever been pregnant?</div>
             <div class="options">
@@ -222,6 +316,28 @@
               <label class="opt"><input type="radio" name="pregnancy_history" value="Prefer not to say"> Prefer not to say</label>
             </div>
           </div>
+
+          <div class="q">
+            <div class="label">If applicable, how old were you at your first full-term birth?</div>
+            <div class="options">
+              <label class="opt"><input type="radio" name="age_first_birth" value="No births yet"> No births yet</label>
+              <label class="opt"><input type="radio" name="age_first_birth" value="<30"> &lt;30</label>
+              <label class="opt"><input type="radio" name="age_first_birth" value="30–34"> 30–34</label>
+              <label class="opt"><input type="radio" name="age_first_birth" value="35+"> 35+</label>
+              <label class="opt"><input type="radio" name="age_first_birth" value="Prefer not to say"> Prefer not to say</label>
+            </div>
+          </div>
+
+          <div class="q">
+            <div class="label">If applicable, have you breastfed?</div>
+            <div class="options">
+              <label class="opt"><input type="radio" name="breastfed" value="Yes"> Yes</label>
+              <label class="opt"><input type="radio" name="breastfed" value="No"> No</label>
+              <label class="opt"><input type="radio" name="breastfed" value="Not applicable"> Not applicable</label>
+              <label class="opt"><input type="radio" name="breastfed" value="Prefer not to say"> Prefer not to say</label>
+            </div>
+          </div>
+
           <div class="q">
             <div class="label">Have you ever received radiation therapy to the chest (for example, for another illness)?</div>
             <div class="options">
@@ -230,6 +346,7 @@
               <label class="opt"><input type="radio" name="chest_radiation" value="Not sure"> Not sure</label>
             </div>
           </div>
+
           <div class="q">
             <div class="label">Do you currently use any hormonal birth control?</div>
             <div class="options">
@@ -240,6 +357,7 @@
               <label class="opt"><input type="radio" name="hormonal_bc" value="Prefer not to say"> Prefer not to say</label>
             </div>
           </div>
+
         </fieldset>
       </div>
 
@@ -255,7 +373,7 @@
         <h2>Your result</h2>
         <div id="badges"></div>
         <p id="resultBlurb" class="muted"></p>
-        <div class="grid" style="margin-top:12px;grid-template-columns:1fr 1fr">
+        <div class="grid" style="margin-top:12px;grid-template-columns:1fr 1fr;display:grid;gap:16px">
           <div>
             <h3>Suggested next steps</h3>
             <ul id="suggestions"></ul>
@@ -283,30 +401,45 @@
   </div>
 
   <script>
-    // --- Scoring maps (educational, not clinical) ---
     const RISK = {
       age_group: {"Under 14":0, "14–18":0, "19–25":1, "Over 25":2},
       family_history_bc: {"Yes":3, "No":0, "Not sure":1},
+
+      sex_at_birth: {"Female":2, "Male":0, "Intersex/Another":1, "Prefer not to say":0},
+      family_history_ov_pro: {"Yes":2, "No":0, "Not sure":1},
+      ashkenazi: {"Yes":2, "No":0, "Not sure":1},
+
       activity_frequency: {"Daily":0, "A few times a week":1, "Rarely":2, "Never":3},
       diet_quality: {"Mostly healthy":0, "Mixed":1, "Mostly unhealthy":2, "I’m not sure":1},
       tobacco_use: {"Yes":3, "No":0, "I’d rather not say":1},
       alcohol_frequency: {"Never":0, "Occasionally":1, "Weekly":2, "Daily":3},
+
+      sleep_hours: {"8+ hours":0, "~7 hours":1, "5–6 hours":2, "<5 hours":3},
+      sedentary_hours: {"<4 hours":0, "4–7 hours":1, "8+ hours":2},
+
       menarche_age: {"Under 11":2, "11–13":1, "14–16":0, "Over 16":0, "I haven’t had my period yet":0},
       pregnancy_history: {"Yes":0, "No":1, "Prefer not to say":0},
       chest_radiation: {"Yes":4, "No":0, "Not sure":2},
-      hormonal_bc: {"None":0, "Pill/Patch/Ring":1, "Hormonal IUD/Implant":1, "Not sure":0, "Prefer not to say":0}
+      hormonal_bc: {"None":0, "Pill/Patch/Ring":1, "Hormonal IUD/Implant":1, "Not sure":0, "Prefer not to say":0},
+
+      age_first_birth: {"No births yet":1, "<30":0, "30–34":1, "35+":2, "Prefer not to say":0},
+      breastfed: {"Yes":0, "No":1, "Not applicable":0, "Prefer not to say":0}
     };
 
     const AWARE = {
       heard_brca: {"Yes":2, "No":0, "I’m not sure":1},
       know_mammogram: {"Yes":2, "No":0, "I think so but I’m not sure":1},
       learned_in_school: {"Yes":2, "No":0, "I don’t remember":1},
-      self_exam_awareness: {"Yes":2, "No":0, "I’ve heard of it but don’t know how to do it":1}
+      self_exam_awareness: {"Yes":2, "No":0, "I’ve heard of it but don’t know how to do it":1},
+
+      know_screening_age: {"Yes":2, "Not sure":1, "No":0},
+      know_fam_details: {"Yes":2, "Somewhat":1, "No":0},
+      know_sources: {"Yes":2, "Not sure":1, "No":0}
     };
 
     const THRESH = {
-      risk: {low:[0,4], moderate:[5,9], elevated:[10,99]},
-      aware: {low:[0,3], moderate:[4,6], high:[7,99]}
+      risk: {low:[0,6], moderate:[7,14], elevated:[15,99]},
+      aware: {low:[0,4], moderate:[5,9], high:[10,99]}
     };
 
     const form = document.getElementById('survey');
@@ -371,7 +504,9 @@
       localStorage.setItem('bc_survey_plain', JSON.stringify(o));
     }
     function loadLocal(){
-      try{ const o = JSON.parse(localStorage.getItem('bc_survey_plain')||'null'); if(!o) return;
+      try{
+        const o = JSON.parse(localStorage.getItem('bc_survey_plain')||'null');
+        if(!o) return;
         for(const [k,v] of Object.entries(o)){
           const el = form.querySelector(`[name="${k}"][value="${v}"]`);
           if(el) el.checked = true;
@@ -382,7 +517,9 @@
     form.addEventListener('submit', (e)=>{
       e.preventDefault();
       const required = form.querySelectorAll('input[required]');
-      for(const r of required){ if(!form.querySelector(`[name="${r.name}"]:checked`)){ r.focus(); return; } }
+      for(const r of required){
+        if(!form.querySelector(`[name="${r.name}"]:checked`)){ r.focus(); return; }
+      }
 
       const riskTotal = sumPoints(RISK);
       const awareTotal = sumPoints(AWARE);
